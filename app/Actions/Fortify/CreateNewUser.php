@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Actions\Fortify;
+
+use App\Concerns\PasswordValidationRules;
+use App\Concerns\ProfileValidationRules;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+
+class CreateNewUser implements CreatesNewUsers
+{
+    use PasswordValidationRules, ProfileValidationRules;
+
+    /**
+     * Validate and create a newly registered user.
+     *
+     * @param  array<string, string>  $input
+     */
+    public function create(array $input): User
+    {
+        $input['username'] = strtolower(trim($input['username']));
+
+        Validator::make($input, [
+            ...$this->profileRules(),
+            'password' => $this->passwordRules(),
+        ])->validate();
+
+        $isFirstUser = User::query()->doesntExist();
+        $user = User::create([
+            'name' => $input['name'],
+            'username' => $input['username'],
+            'email' => $input['email'],
+            'timezone' => $input['timezone'],
+            'password' => $input['password'],
+        ]);
+
+        $user->assignRole($isFirstUser ? 'super-admin' : 'owner');
+
+        return $user;
+    }
+}
