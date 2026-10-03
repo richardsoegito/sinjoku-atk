@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Livewire\Sales\Edit;
+use App\Livewire\Sales\Index;
 use App\Livewire\Settings\Permissions;
 use App\Livewire\Settings\Roles;
 use App\Models\Permission;
@@ -285,12 +286,12 @@ class AccessControlTest extends TestCase
         ]);
 
         Livewire::actingAs($owner)
-            ->test(\App\Livewire\Sales\Index::class)
+            ->test(Index::class)
             ->assertSee('Transaksi Admin')
             ->assertSee($sale->invoice_number);
 
         Livewire::actingAs($owner)
-            ->test(\App\Livewire\Sales\Edit::class, ['sale' => $sale])
+            ->test(Edit::class, ['sale' => $sale])
             ->set('items.0.status', 'loaded')
             ->call('updateItemStatuses')
             ->assertHasNoErrors();

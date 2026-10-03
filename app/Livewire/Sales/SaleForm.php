@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Models\Sale;
 use App\Models\SaleItem;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -53,7 +54,7 @@ trait SaleForm
         ];
     }
 
-    /** @return array{customers: \Illuminate\Database\Eloquent\Collection<int, User>, products: \Illuminate\Database\Eloquent\Collection<int, Barang>} */
+    /** @return array{customers: Collection<int, User>, products: Collection<int, Barang>} */
     protected function referenceData(): array
     {
         return [

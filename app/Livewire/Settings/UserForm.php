@@ -5,10 +5,11 @@ namespace App\Livewire\Settings;
 use App\Models\Role;
 use App\Models\User;
 use Flux\Flux;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
 
 trait UserForm
@@ -88,7 +89,7 @@ trait UserForm
         return true;
     }
 
-    /** @return array{roles: \Illuminate\Database\Eloquent\Collection<int, Role>, selectedRoleName: string|null} */
+    /** @return array{roles: Collection<int, Role>, selectedRoleName: string|null} */
     protected function userFormViewData(): array
     {
         $roles = Role::query()->where('guard_name', 'web')->orderBy('name')->get();
