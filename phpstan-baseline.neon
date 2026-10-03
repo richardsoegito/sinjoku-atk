@@ -1,0 +1,279 @@
+parameters:
+	includes:
+    	- phpstan-baseline.neon
+	ignoreErrors:
+		-
+			message: '#^Cannot call method translatedFormat\(\) on Carbon\\Carbon\|string\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Livewire/Dashboard.php
+
+		-
+			message: '#^Method App\\Livewire\\Dashboard\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Livewire/Dashboard.php
+
+		-
+			message: '#^Method App\\Livewire\\Dashboard\:\:revenueBetween\(\) has parameter \$salesQuery with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Livewire/Dashboard.php
+
+		-
+			message: '#^Method App\\Livewire\\Dashboard\:\:salesQuery\(\) return type with generic class Illuminate\\Database\\Eloquent\\Builder does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Livewire/Dashboard.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\Sales\\Create\:\:\$sale\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Barang\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\Barang\>\:\:\$harga_barang\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Barang\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\Barang\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Barang\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\Barang\>\:\:\$nama_barang\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\User\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\User\>\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Create\:\:deliverySummary\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Create\:\:emptyItem\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Create\:\:itemSubtotal\(\) has parameter \$item with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Create\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Create\:\:saleRules\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Create\:\:statuses\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Property App\\Livewire\\Sales\\Create\:\:\$deliveryProof has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Property App\\Livewire\\Sales\\Create\:\:\$items type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Property App\\Models\\Sale\:\:\$user_id \(int\) does not accept int\|string\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Livewire/Sales/Create.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Barang\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\Barang\>\:\:\$harga_barang\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Barang\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\Barang\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Barang\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\Barang\>\:\:\$nama_barang\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\User\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), App\\Models\\User\>\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Cannot call method copy\(\) on string\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Edit\:\:deliverySummary\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Edit\:\:emptyItem\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Edit\:\:itemSubtotal\(\) has parameter \$item with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Edit\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Edit\:\:saleRules\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Edit\:\:statuses\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Parameter \#1 \$boolean of function abort_unless expects bool, App\\Models\\SaleItem\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Parameter \#1 \$boolean of function abort_unless expects bool, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Property App\\Livewire\\Sales\\Edit\:\:\$deliveryProof has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Property App\\Livewire\\Sales\\Edit\:\:\$items type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Property App\\Models\\Sale\:\:\$user_id \(int\) does not accept int\|string\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Sales/Edit.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Index.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$invoice_number\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Sales/Index.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:generateTrackingToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Livewire/Sales/Index.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Index\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Livewire/Sales/Index.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Index\:\:salesQuery\(\) return type with generic class Illuminate\\Database\\Eloquent\\Builder does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Livewire/Sales/Index.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>nama_barang" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Sales/SaleForm.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Sales/SaleForm.php
+
+		-
+			message: '#^Method App\\Livewire\\Sales\\Tracking\:\:render\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Livewire/Sales/Tracking.php
+
+		-
+			message: '#^Parameter \#1 \$boolean of function abort_unless expects bool, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: routes/web.php
