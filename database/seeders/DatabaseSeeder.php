@@ -16,12 +16,5 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(RolePermissionSeeder::class);
-
-        $user = User::query()->firstOrCreate(['email' => 'test@example.com'], [
-            'name' => 'Test User',
-            'password' => 'password',
-        ]);
-
-        $user->syncRoles('super-admin');
     }
 }
