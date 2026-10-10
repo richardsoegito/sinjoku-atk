@@ -38,6 +38,39 @@ class UserManagementTest extends TestCase
         $this->actingAs($user)->get(route('settings.users'))->assertForbidden();
     }
 
+    public function test_users_can_be_filtered_to_customers_and_all_roles(): void
+    {
+        $admin = User::factory()->create();
+        $admin->syncRoles('super-admin');
+
+        $customer = User::factory()->create(['name' => 'Customer Terfilter']);
+        $customer->syncRoles('customer');
+
+        $owner = User::factory()->create(['name' => 'Owner Tidak Terfilter']);
+        $owner->syncRoles('owner');
+
+        Livewire::actingAs($admin)->test(Users::class)
+            ->set('roleFilter', 'customer')
+            ->assertSee('Customer Terfilter')
+            ->assertDontSee('Owner Tidak Terfilter')
+            ->set('roleFilter', 'all')
+            ->assertSee('Customer Terfilter')
+            ->assertSee('Owner Tidak Terfilter');
+    }
+
+    public function test_role_badges_use_distinct_colors(): void
+    {
+        $admin = User::factory()->create();
+        $admin->syncRoles('super-admin');
+
+        $customer = User::factory()->create();
+        $customer->syncRoles('customer');
+
+        Livewire::actingAs($admin)->test(Users::class)
+            ->assertSee('bg-red-100 text-red-800', false)
+            ->assertSee('bg-green-100 text-green-800', false);
+    }
+
     public function test_user_can_be_created_updated_and_deleted(): void
     {
         $admin = User::factory()->create();

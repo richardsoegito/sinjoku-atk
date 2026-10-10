@@ -19,6 +19,8 @@ class Users extends Component
     #[Url(as: 'q', except: '')]
     public string $search = '';
 
+    public string $roleFilter = 'all';
+
     public int|string|null $userToDeleteId = null;
 
     public string $userToDeleteName = '';
@@ -29,6 +31,11 @@ class Users extends Component
     }
 
     public function updatedSearch(): void
+    {
+        $this->resetPage();
+    }
+
+    public function updatedRoleFilter(): void
     {
         $this->resetPage();
     }
@@ -73,6 +80,7 @@ class Users extends Component
         return view('livewire.settings.users', [
             'users' => User::query()
                 ->with('roles')
+                ->when($this->roleFilter === 'customer', fn ($query) => $query->whereHas('roles', fn ($roleQuery) => $roleQuery->where('name', 'customer')))
                 ->when($search !== '', function ($query) use ($search) {
                     $query->where(function ($q) use ($search) {
                         $q->where('name', 'like', "%{$search}%")
